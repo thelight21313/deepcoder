@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тестовый чат · DeepSeek Browser Bridge</title>
+  <link rel="stylesheet" href="/ui.css">
+  <script src="mock.js" defer></script>
+</head>
+<body>
+  <main data-bridge-chat>
+    <header>
+      <div>
+        <p class="eyebrow">DeepSeek Browser Bridge</p>
+        <h1>Тестовый чат</h1>
+      </div>
+      <button type="button" data-bridge-new>Новый чат</button>
+    </header>
+    <div class="toolbar">
+      <label for="scenario">Сценарий</label>
+      <select id="scenario">
+        <option value="normal">Обычный ответ</option>
+        <option value="markdown">Markdown, код и таблица</option>
+        <option value="long">Длинный ответ</option>
+        <option value="server_error">Ошибка сервера</option>
+        <option value="generation_interrupted">Прерванная генерация</option>
+        <option value="hang">Зависание</option>
+        <option value="connection_lost">Потеря подключения</option>
+        <option value="ui_changed">Изменение DOM</option>
+        <option value="login_required">Требуется вход</option>
+        <option value="session_expired">Сессия истекла</option>
+        <option value="captcha">CAPTCHA</option>
+        <option value="usage_limited">Лимит провайдера</option>
+      </select>
+      <span role="status" data-bridge-auth></span>
+    </div>
+    <section class="messages" aria-label="Сообщения" data-bridge-messages></section>
+    <p class="error" data-bridge-error role="alert" hidden></p>
+    <form id="composer">
+      <label for="prompt">Запрос</label>
+      <textarea id="prompt" data-bridge-input rows="3" maxlength="24000"></textarea>
+      <div class="toolbar">
+        <button class="primary" type="submit" data-bridge-send disabled>Отправить</button>
+        <button type="button" data-bridge-stop hidden>Остановить</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

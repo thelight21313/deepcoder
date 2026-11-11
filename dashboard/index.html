@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Панель управления · DeepSeek Browser Bridge</title>
+  <link rel="stylesheet" href="ui.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Локальный сервис</p>
+        <h1>DeepSeek Browser Bridge</h1>
+      </div>
+      <a href="/mock/" target="_blank" rel="noopener">Открыть тестовый чат ↗</a>
+    </header>
+    <form id="auth" class="toolbar">
+      <label for="token">Токен Bridge</label>
+      <input id="token" type="password" autocomplete="off" required>
+      <button class="primary">Подключить</button>
+    </form>
+    <p id="notice" role="status"></p>
+    <section id="overview" hidden aria-label="Состояние Bridge">
+      <dl class="metrics">
+        <div><dt>Bridge</dt><dd id="bridge"></dd></div>
+        <div><dt>Расширение Chrome</dt><dd id="extension"></dd></div>
+        <div><dt>Веб-провайдер</dt><dd id="provider"></dd></div>
+        <div><dt>Авторизация</dt><dd id="authorization"></dd></div>
+        <div><dt>Заданий в очереди</dt><dd id="queue"></dd></div>
+        <div><dt>Текущее задание</dt><dd id="active"></dd></div>
+      </dl>
+      <div class="toolbar" aria-label="Управление очередью">
+        <button data-action="start">Запустить обработку</button>
+        <button data-action="pause">Приостановить</button>
+        <button data-action="resume">Продолжить</button>
+        <button id="check">Проверить подключение</button>
+      </div>
+      <h2>История заданий</h2>
+      <p id="empty" hidden>Заданий пока нет.</p>
+      <ul class="history" id="history"></ul>
+    </section>
+  </main>
+</body>
+</html>

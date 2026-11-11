@@ -1,0 +1,57 @@
+:root {
+  color-scheme: light;
+  font: 15px/1.55 system-ui, sans-serif;
+  color: #172739;
+  background: #f1f5f7;
+  --accent: #12556b;
+  --border: #b9c9d0;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100% - 32px, 880px); margin: 45px auto; }
+header, .toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+header { justify-content: space-between; margin-bottom: 24px; }
+h1 { margin: 0; font-size: clamp(25px, 5vw, 38px); line-height: 1.15; letter-spacing: -.035em; }
+h2 { margin-top: 32px; font-size: 20px; }
+.eyebrow { margin: 0 0 5px; color: #4a6070; font-size: 13px; }
+a { color: var(--accent); }
+button, select, input, textarea {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 12px;
+  font: inherit;
+  color: inherit;
+  background: white;
+}
+button { cursor: pointer; }
+button:hover:enabled { border-color: var(--accent); }
+button:disabled { opacity: .55; cursor: default; }
+.primary { background: var(--accent); border-color: var(--accent); color: white; }
+:focus-visible { outline: 3px solid #187fa1; outline-offset: 3px; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.metrics div, .history li, .messages, form#composer {
+  padding: 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+dt { color: #4a6070; font-size: 13px; }
+dd { margin: 0; font-weight: 650; }
+.history { padding: 0; list-style: none; }
+.history li { margin-bottom: 8px; }
+.history p { margin: 4px 0 8px; color: #4a6070; font-size: 13px; }
+pre, .messages article { white-space: pre-wrap; overflow-wrap: anywhere; }
+.messages { min-height: 160px; margin: 14px 0; }
+.messages article { margin: 6px 0; padding: 8px 12px; border-radius: 7px; }
+[data-role="user"] { margin-left: auto !important; width: fit-content; background: #e5f2f5; }
+[data-role="assistant"] { background: #f1f5f7; }
+[data-role="assistant"] h2 { margin-top: 0; }
+[data-role="assistant"] pre { background: #e5eef1; padding: 10px; border-radius: 6px; }
+[data-role="assistant"] table { border-collapse: collapse; }
+[data-role="assistant"] th, [data-role="assistant"] td {
+  border: 1px solid var(--border);
+  padding: 5px 8px;
+}
+textarea { display: block; width: 100%; margin: 5px 0 10px; resize: vertical; }
+.error, #notice { color: #a12632; }

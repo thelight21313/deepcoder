@@ -1,0 +1,4 @@
+task_timeout: 180
+deepseek_browser_enabled: true
+lease_timeout: 15
+max_attempts: 3

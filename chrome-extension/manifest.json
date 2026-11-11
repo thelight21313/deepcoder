@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "DeepSeek Browser Bridge",
+  "version": "0.1.0",
+  "minimum_chrome_version": "120",
+  "description": "Connects DeepSeek and the local test chat to Bridge using Native Messaging.",
+  "permissions": ["nativeMessaging", "alarms", "storage", "activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1/*", "https://chat.deepseek.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1/mock/*"],
+      "js": ["adapters/selectors.js", "adapters/deepseek.js", "content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": ["adapters/live-selectors.js", "adapters/live-deepseek.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_popup": "popup.html" }
+}

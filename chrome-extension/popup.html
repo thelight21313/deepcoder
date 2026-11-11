@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>DeepSeek Browser Bridge</title>
+<style>
+  body { min-width: 230px; padding: 12px; font: 14px system-ui; }
+  h1 { font-size: 16px; }
+  details { margin-top: 12px; }
+  details button { margin: 3px 0; }
+</style>
+<h1>DeepSeek Browser Bridge</h1>
+<p id="status" role="status">Проверка подключения…</p>
+<a href="http://127.0.0.1:8765/" target="_blank" rel="noopener">Панель управления</a>
+<details id="probe" hidden>
+  <summary>Диагностика DeepSeek</summary>
+  <p id="probe-status" role="status"></p>
+  <button id="probe-start" type="button">Начать запись DOM</button>
+  <button id="probe-download" type="button" disabled>Скачать отчёт JSON</button>
+</details>
+<script src="dom-probe.js"></script>
+<script src="popup.js"></script>
+</html>
