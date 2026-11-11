@@ -61,7 +61,7 @@ function rpc(method, body, taskId) {
 
 async function browserTab(provider) {
   const live = provider === "deepseek";
-  const tabs = await chrome.tabs.query({ url: live ? DEEPSEEK_ORIGIN + "/*" : "http://127.0.0.1/mock/*" });
+  const tabs = await chrome.tabs.query({ url: live ? DEEPSEEK_ORIGIN + "/*" : MOCK_URL + "*" });
   const candidates = tabs.filter(candidate => {
     try {
       const url = new URL(candidate.url);
